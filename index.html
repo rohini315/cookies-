@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<script src="cookies.js"></script>
+		<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<title>Cookie Monster</title>
+</head>
+<body>
+
+	<form action="/">
+		<h1 id="site_name"> C is for Cookie...& Cookie is for Me </h1>
+		<div class="cookie">
+			<img src="images/cm.svg" id="lemon">
+			<p class="total" id="lemon_total">0</p>
+			<br>
+			<p>LEMON<br> COOKIE</p>
+		</div>
+		<div class="cookie">
+			<img src="images/cm.svg" id="sugar">
+			<p class="total" id="sugar_total">0</p>
+			<br>
+			<p >SUGAR<br> COOKIE</p>
+		</div>
+		<div class="cookie">
+			<img src="images/cm.svg" id="chocolate">
+			<p class="toal" id="chocolate_total">0</p>
+			<br>
+			<p>CHOCOLATE COOKIE</p>
+		</div>
+		<input type="submit" value="TOO FULL?" id="reset">
+	</form>
+
+
+	<script>
+		var LemonCookiesCount = Cookies.get("lemon");
+		var SugarCookiesCount = Cookies.get("sugar");
+		var ChocolateCookiesCount = Cookies.get("chocolate");
+		$(document).ready(function(){
+		
+			$("#lemon").on("click",function(){
+				LemonCookiesCount++;
+				Cookies.set("lemon",LemonCookiesCount);
+				document.getElementById("lemon_total").innerHTML = LemonCookiesCount
+			});
+		
+
+			$("#sugar").on("click",function(){
+				SugarCookiesCount++;
+				Cookies.set("sugar",SugarCookiesCount);
+			
+				document.getElementById("sugar_total").innerHTML = SugarCookiesCount
+			});
+	 
+			$("#chocolate").on("click",function(){
+				ChocolateCookiesCount++
+				Cookies.set("chocolate",SugarCookiesCount)
+				
+				document.getElementById("chocolate_total").innerHTML = ChocolateCookiesCount
+			});
+			   $("#reset").on("click",function(){
+				  	LemonCookiesCount = 0; 	
+			    	SugarCookiesCount = 0;
+			    	ChocolateCookiesCount = 0;
+			    	
+			    	Cookies.set("lemon", "0");
+			    	Cookies.set("sugar", "0");
+			    	Cookies.set("chocolate", "0");
+			    	$("#lemon_total").html("0");
+			    	$("#sugar_toal").html("0");
+			    	$("#chocolate_total").html("0");
+		   		});
+	});
+	</script>
+</body>
+</html>
